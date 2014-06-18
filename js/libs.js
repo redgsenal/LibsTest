@@ -68,7 +68,7 @@
 		POP_UP_BOX: $('<div class="popupbox"></div>'),
 		init: function($content){
 			var $box = $.fn.popupBox.POP_UP_BOX;
-			$('body').append($box);
+			var $body = $('body').css({'background-color': 'gray'}).append($box);
 			$box.append($content);
 			return this;
 		},
@@ -81,6 +81,7 @@
 			$box.css({left: px, top: py});
 			if (!$box.is(":visible"))
 				$box.fadeIn();
+			return this;
 		}
 	}
 	
