@@ -47,7 +47,7 @@
 	$.randomString = function (keylength){
 		
 		var alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-		var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+		var possible = alpha+ '0123456789';
 		
 		if ((!keylength || keylength < 5) || keylength > 64)
 			keylength = 5;
