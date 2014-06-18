@@ -62,4 +62,29 @@
 		return key;
 	}
 	
+	// display a box a the center screen
+	$.fn.popupBox = {		
+		// create a wrapper here
+		POP_UP_BOX: $('<div class="popupbox"></div>'),
+		init: function($content){
+			var $box = $.fn.popupBox.POP_UP_BOX;
+			$('body').append($box);
+			$box.append($content);
+			return this;
+		},
+		show: function(){
+			var $box = $.fn.popupBox.POP_UP_BOX;
+			var x = ($(window).width() / 2) - ($box.outerWidth() / 2);
+			var y = ($(window).height() / 2) - ($box.outerHeight() / 2);
+			var px = Math.floor((x / $(window).width()) * 100) + '%';
+			var py = Math.floor((y / $(window).height()) * 100) + '%';
+			$box.css({left: px, top: py});
+			if (!$box.is(":visible"))
+				$box.fadeIn();
+		}
+	}
+	
+	$(window).resize(function(){
+		$.fn.popupBox.show();
+	});
 }(jQuery));
