@@ -66,10 +66,15 @@
 	$.fn.popupBox = {		
 		// create a wrapper here
 		POP_UP_BOX: $('<div class="popupbox"></div>'),
+		WRAPPER: $('<div class="popup-wrapper"></div>'),
+		CONTAINER: $('<div class="popup-container"></div>'),
 		init: function($content){
 			var $box = $.fn.popupBox.POP_UP_BOX;
-			var $body = $('body').css({'background-color': 'gray'}).append($box);
+			var $wrp = $.fn.popupBox.WRAPPER;
+			var $con = $.fn.popupBox.CONTAINER;
 			$box.append($content);
+			
+			$('body').append($con.append($wrp).append($box));
 			return this;
 		},
 		show: function(){
