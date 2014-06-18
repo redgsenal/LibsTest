@@ -26,8 +26,8 @@
 	// generate a key
 	$.generateKey =  function (prefixString, keylength){
 		var d = new Date();
-		var m = d.getUTCMonth() + '';
-		var day = d.getUTCDate();
+		var m = d.getUTCMonth();
+		var day = d.getUTCDate() + '';
 		var y = d.getUTCFullYear() + '';
 		
 		if (!prefixString)
@@ -38,6 +38,8 @@
 
 		if ((!keylength || keylength < 5) || keylength > 12)
 			keylength = 5;
+		
+		m = ((m < 10) ? '0' + m + '' : m + '');
 		
 		var text = $.randomString(keylength);
 		return prefixString + y + m + day + text;
